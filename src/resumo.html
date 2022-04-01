@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resumão</title>
+
+    <style>
+      body {
+          background-color: silver;
+      }
+
+      ul.bebidaVazia {
+        list-style-type: circle;
+      }
+
+      ol.bebidaRomano {
+        list-style-type: upper-roman;
+      }
+
+      div {
+          width: 100%;
+          display: inline-block;
+          margin-left: 9rem;
+          margin-top: 3rem;
+      }
+
+      .unordered {
+        width: 20%;
+        border: 2px solid goldenrod;
+        background-color: rgb(207, 207, 114);
+      }
+
+      .ordered {
+        width: 20%;
+        border: 2px solid rgb(87, 87, 162);
+        background-color: rgb(39, 119, 239);
+      }
+    </style>
+  </head>
+  <body>
+      <div class="container">
+        <div class="unordered">
+            <h4 style="margin-left: 1rem;">Unordered List:</h4>
+            <ul class="bebidaVazia">
+              <li>Coffee</li>
+              <li>Tea</li>
+              <li>Coca cola</li>
+            </ul>
+            <ul>
+              <li>Coffee</li>
+              <li>Tea</li>
+              <li>Coca cola</li>
+            </ul>
+          </div>
+      
+          <div class="ordered">
+            <h4 style="margin-left: 1rem;">Ordered List:</h4>
+            <ol>
+              <li>Coffee</li>
+              <li>Tea</li>
+              <li>Coca cola</li>
+            </ol>
+            <ol class="bebidaRomano">
+              <li>Coffee</li>
+              <li>Tea</li>
+              <li>Coca cola</li>
+            </ol>
+          </div>
+      </div>
+    
+  </body>
+</html>

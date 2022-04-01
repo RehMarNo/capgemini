@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+
+    <style>
+        div{
+            width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+
+        input{
+            width: 100%;
+            border-radius: 5px;
+            padding: 6px 3px 6px 3px;
+            margin-bottom: 5px;
+        }
+
+        button{
+            width: 100%;
+        }
+
+        label{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <input type="text" id="nome" placeholder="informe o nome"></input>
+        <input type="text" id="sobreNome" placeholder="informe o sobrenome"></input>
+        <input type="text" id="idade" placeholder="informe a idade"></input>
+        <label id="nomeCompleto"></label>
+        <hr>
+        <button onclick="ola()">Mostrar nome completo</button>
+    </div>
+    
+    <script>
+        function ola() {
+            let nome = document.getElementById("nome");
+            if(nome.value == ""){
+                document.getElementById("nomeCompleto").innerHTML = "informe o nome"
+                nome.focus();
+                return;
+            }
+            let sobreNome = document.getElementById("sobreNome");
+            if(sobreNome.value == ""){
+                document.getElementById("nomeCompleto").innerHTML = "informe o sobrenome"
+                sobreNome.focus();
+                return;
+            }
+            let idade = document.getElementById("idade")
+            if(idade.value == ""){
+                document.getElementById("nomeCompleto").innerHTML = "informe a idade"
+                idade.focus();
+                return;
+            }
+
+            if(idade < 18){
+                document.getElementById("nomeCompleto").innerHTML = nome.value + " " + sobreNome.value + ", você é de menor"
+            } else {
+                document.getElementById("nomeCompleto").innerHTML = nome.value + " " + sobreNome.value + ", você é de maior"
+            }
+            
+        }
+    </script>
+</body>
+</html>

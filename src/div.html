@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divs</title>
+
+    <style>
+        *{
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        p {
+            color: red;
+        }
+
+        div {
+            border: 1px solid red;
+            width: 100%;
+            display: inline-block;
+        }
+
+        div p {
+            color: green;
+        }
+
+        .esquerdo{
+            width: 49%;
+            background-color: blue;
+        }
+
+        .direito {
+            width: 50%;
+            background-color: yellow;
+        }
+
+        .container p {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>Paragrafo 1 </p>
+        <p>Paragrafo 2 </p>
+        <p>Paragrafo 3 </p>
+    </div>
+
+    <div class="container">
+        <div class="esquerdo">
+            <p>aaaaaaaa</p>
+        </div>
+        <div class="direito">
+            <p>aaaaaaaa</p>
+        </div>
+    </div>
+</body>
+</html>

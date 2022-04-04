@@ -1,0 +1,18 @@
+{
+    "contatos": [
+        {
+            "id":1, 
+            "nome":"Maria", 
+            "fone":"8332350262",
+            "idade": 33,
+            "email": "maria@gmail.com"
+        },
+        {
+            "id":2, 
+            "nome":"Jose", 
+            "fone":"8332350262",
+            "idade": 43,
+            "email": "jose@gmail.com"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../style/estiloCadastro.css">
+
+</head>
+<body>
+    <div>
+        <form action="#" method="POST">
+            <label for="nome">Nome</label>
+            <input type="text" placeholder="Informe nome" id="nome" required oninvalid="this.setCustomValidity('Informe Nome')"></input>
+            <input type="number" placeholder="Informe idade" id="idade"></input>
+            <input type="email" placeholder="Informe email" id="email"></input>
+            <input type="date" id="data"></input>
+            <input type="time" id="hora"></input>
+            <input type="password" placeholder="Senha" id="senha"></input>
+            <input type="radio" name="genero" checked>Feminino</input>
+            <input type="radio" name="genero">Masculino</input>
+            <ol>
+                <li><input type="checkbox" id="livro">Livros</input></li>
+                <li><input type="checkbox" id="musica">Musica</input></li>
+            </ol>
+            <textarea cols="15" rows="10" id="textarea"></textarea>
+            <select id="selectNum">
+                <option value="1">Um</option>
+                <option value="2">Dois</option>
+                <option value="3">Três</option>
+            </select>
+            <!-- <button>Salvar</button>    Para usar o required é necessário o button estar dentro do form-->
+            
+        </form>
+        <button onclick="onSubmit()">Gravar</button>
+    </div>
+    
+
+    <script src="./cadastroJS.js"></script>
+</body>
+</html>

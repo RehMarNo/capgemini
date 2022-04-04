@@ -1,0 +1,20 @@
+div {
+    width: 300px;
+    margin: auto;
+}
+
+input[type=checkbox]{
+    color: red;
+}
+
+ol{
+    list-style-type: none;
+}
+
+ol li{
+    display: inline;
+}
+
+input[type=text]{
+    width: 100%;
+}

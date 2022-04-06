@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta</title>
+    <link rel="stylesheet" href="../style/estiloConsulta.css">
+</head>
+<body onload="load()">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Idade</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="table">
+            
+        </tbody>
+    </table>
+
+    <script>
+        function load(){
+            fetch("http://localhost:3000/contatos")
+            .then(x => x.text())
+            .then(dados => display(dados))
+        }
+        function display(dados){
+            let  concatTr = ''
+            let lista = JSON.parse(dados)
+            //console.log(lista)
+            lista.forEach(e => {
+                concatTr += ` <tr>
+                                <td>${e.id}</td>
+                                <td>${e.nome}</td>
+                                <td>${e.fone}</td>
+                                <td>${e.idade}</td>
+                                <td>${e.email}</td>
+                            </tr>`
+            });
+            document.getElementById("table").innerHTML = concatTr
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    box-sizing: none;
+}
+
+body{
+    background-color: rgb(202, 202, 202);
+}
+
+header{
+    width: 100%;
+    text-align: center;
+    height: 10vh;
+    margin-top: 15px;
+    color: rgb(8, 8, 72);
+}
+
+main{
+    display: block;
+    width: 40%;
+    margin-left: 30%;
+}
+
+input{
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 4px;
+    border-color: darkcyan;
+    padding: 3px;
+}
+
+.btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    margin: 8px;
+    border: 0;
+    border-radius: 3px;
+    background-color: rgb(8, 8, 72);
+    color: white;
+    padding: 5px;
+}
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente</title>
+    <link rel="stylesheet" href="../style/estiloCliente.css">
+</head>
+<body>
+
+    <div class="corpo">
+        <header> <h2>Cadastro de Cliente</h2> </header>
+        <main>
+            <form action="#" method="post" id="formCliente">
+                <input class="input" type="text" id="nome" placeholder="Informe nome"></input>
+                <input class="input" type="text" id="telefone" placeholder="Informe telefone"></input>
+                <input class="input" type="email" id="email" placeholder="Informe email"></input>
+                <input class="input" type="text" id="rua" placeholder="Informe rua"></input>
+                <input class="input" type="text" id="bairro" placeholder="Informe bairro"></input>
+                <input class="input" type="text" id="cidade" placeholder="Informe cidade"></input>
+                <input class="input" type="text" id="cep" placeholder="Informe CEP"></input>
+                <input class="input" type="text" id="credito" placeholder="Informe limite de crédito"></input>
+                <label for="foto">Adicione uma foto:</label>
+                <input type="file" id="foto" ></input>
+            </form>
+            <div class="btn">
+                <button onclick="salvar()">Salvar</button>
+                <button onclick="cancelar()">Cancelar</button>
+            </div>
+            
+        </main>
+    </div>
+    <script src="./clienteJS.js"></script>
+</body>
+</html>

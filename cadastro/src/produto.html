@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+    <link rel="stylesheet" href="../style/estiloProduto.css">
+</head>
+<body onload="loadCategoria()">
+    
+    <div class="corpo">
+        <header> <h2>Cadastro de Produto</h2> </header>
+        <main>
+            <form action="#" method="post" id="formCliente">
+                <input class="input" type="text" id="descricao" placeholder="Informe descrição"></input>
+                <input class="input" type="text" id="preco" placeholder="Informe preço unitário"></input>
+                <input class="input" type="text" id="medida" placeholder="Informe unidade de medida"></input>
+                <input class="input" type="text" id="fornecedor" placeholder="Informe fornecedor"></input>
+                <select id="selectCategoria">
+
+                </select>
+            </form>
+            <div class="btn">
+                <button onclick="salvar()">Salvar</button>
+                <button onclick="cancelar()">Cancelar</button>
+            </div>
+            
+        </main>
+    </div>
+
+
+    <script src="./produtoJS.js"></script>
+    
+</body>
+</html>

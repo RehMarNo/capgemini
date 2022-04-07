@@ -1,0 +1,72 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "descricao": "Sabão",
+      "preco": "5.00",
+      "estoque": 10,
+      "fornecedor": "Omo",
+      "categoria": "Material de Limpeza"
+    },
+    {
+      "descricao": "Treloso",
+      "preco": "3.00",
+      "estoque": "5",
+      "fornecedor": "Vitarella",
+      "categoria": "Biscoito",
+      "id": 2
+    },
+    {
+      "descricao": "Guaraná",
+      "preco": "7.00",
+      "estoque": "6",
+      "fornecedor": "Ambev",
+      "categoria": "Bebida",
+      "id": 3
+    },
+    {
+      "descricao": "Eisenbahn",
+      "preco": "4.00",
+      "estoque": "3",
+      "fornecedor": "Ambev",
+      "categoria": "Bebida",
+      "id": 4
+    }
+  ],
+  "Fornecedores": [
+    {
+      "id": 1,
+      "nome": "Omo"
+    },
+    {
+      "id": 2,
+      "nome": "Ambev"
+    },
+    {
+      "id": 3,
+      "nome": "Vitarella"
+    },
+    {
+      "id": 4,
+      "nome": "SEASA"
+    }
+  ],
+  "Categorias": [
+    {
+      "id": 1,
+      "nome": "Material de Limpeza"
+    },
+    {
+      "id": 2,
+      "nome": "Biscoito"
+    },
+    {
+      "id": 3,
+      "nome": "Bebida"
+    },
+    {
+      "id": 4,
+      "nome": "Fruta"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+    "produtos": [
+        {
+            "id":1,
+            "nome": "Feijão",
+            "descricao": "Feijão Preto",
+            "preco": 7.89,
+            "imagem": "./imagens/feijao.png"
+        },
+        {
+            "id":2,
+            "nome": "Arroz",
+            "descricao": "Arroz Branco",
+            "preco": 6.99,
+            "imagem": "./imagens/arroz.jpg"
+        },
+        {
+            "id":3,
+            "nome": "Arroz",
+            "descricao": "Arroz Branco",
+            "preco": 6.99,
+            "imagem": "./imagens/arroz.jpg"
+        },
+        {
+            "id":4,
+            "nome": "Arroz",
+            "descricao": "Arroz Branco",
+            "preco": 6.99,
+            "imagem": "./imagens/arroz.jpg"
+        }
+    ]
+}

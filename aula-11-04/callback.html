@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+<body>
+
+    <div>
+        <input type="number" placeholder="Informe numero">
+        <input type="number" placeholder="Informe numero">
+        <button onclick="onCalcular()">Mostrar no  paragrafo</button>
+        <button onclick="onCalcular2()">Mostrar no alert</button>
+        <hr>
+        <p></p>
+    </div>
+    
+    <script>
+        function onCalcular() {
+            var n1 = parseInt(document.getElementsByTagName('input')[0].value) 
+            var n2 = parseInt(document.getElementsByTagName('input')[1].value) 
+            calcular(n1,n2, mostrarEmParagrafo)
+        }
+
+        function onCalcular2() {
+            var n1 = parseInt(document.getElementsByTagName('input')[0].value) 
+            var n2 = parseInt(document.getElementsByTagName('input')[1].value) 
+            calcular(n1,n2, mostrarComoAlert)
+        }
+
+        function calcular(n1, n2, mostrarEmParagrafo) {
+            let x =n1+n2
+            mostrarEmParagrafo(x)
+        }
+        function mostrarEmParagrafo(valor) {
+            document.getElementsByTagName("p")[0].innerHTML= `Soma: ${valor}`
+        }
+        function mostrarComoAlert(valor){
+            alert(valor)
+        }
+
+    </script>
+</body>
+</html>

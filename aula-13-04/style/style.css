@@ -1,0 +1,48 @@
+.container{ 
+    width: 400px;
+    margin: auto;
+}
+
+.entrada{ 
+    width: 100%;
+}
+
+.botoes{ 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    width: 100%;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    padding: 3px 2px 3px 3px
+}
+
+button{
+    border: 1px solid rgb(33, 181, 207);
+    padding: 3px;
+    border-radius: 3px;
+    margin-top: 3px;
+}
+
+.salvar{ 
+    background-color: #2196F3;
+    color: white;
+}
+
+.salvar:hover{ 
+    background-color: white;
+    color: #2196F3;
+}
+
+.cancelar{ 
+    background-color: #f34121;
+    color: white;
+}
+
+.cancelar:hover{ 
+    background-color: white;
+    color: #f34121;
+}

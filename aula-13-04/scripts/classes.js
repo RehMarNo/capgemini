@@ -33,4 +33,31 @@ class Contato {
         .then(x => x.text())
         .then(data => display(data))
     }
+
+    editar() {
+        //PUT: atualiza todo o objeto, PATCH: atualiza apenas o que foi especificado
+        fetch(`${urlContatos}/${this.id}`, 
+            {
+                method: "PATCH",
+                body: JSON.stringify(
+                    {
+                        "nome": this.nome,
+                        "fone": this.fone,
+                        "email": this.email
+                    }
+                ),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .catch(erro => console.log(erro))
+    }
+
+    excluir(idContato) {
+        fetch(`${urlContatos}/${idContato}`, 
+            {
+                method: "DELETE"
+            })
+            .catch(erro => console.log(erro))
+    }
 }

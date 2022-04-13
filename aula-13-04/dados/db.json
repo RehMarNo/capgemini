@@ -2,21 +2,15 @@
   "contatos": [
     {
       "id": 1,
-      "nome": "Jose",
-      "fone": "12354",
-      "email": "jose@gmail.com"
+      "nome": "Joeliton",
+      "fone": "9999",
+      "email": "joeliton@gmail.com"
     },
     {
       "id": 2,
       "nome": "Renata",
-      "fone": "4657",
+      "fone": "77777777",
       "email": "renata@gmail.com"
-    },
-    {
-      "id": 3,
-      "nome": "Maria",
-      "fone": "687789",
-      "email": "maria@gmail.com"
     }
   ]
 }

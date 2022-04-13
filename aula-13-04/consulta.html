@@ -7,13 +7,12 @@
     <title>Consulta</title>
     <script src="./scripts/classes.js"></script>
     <link rel="stylesheet" href="./style/styleConsulta.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </head>
-<body>
+<body onload="load()">
 
     <div class="container">
-        <label for="">Clique para carregar os contato</label>
-        <button onclick="load()">Carregar</button>
-
         <table>
             <thead>
                 <tr>
@@ -21,7 +20,8 @@
                     <th>Nome</th>
                     <th>Fone</th>
                     <th>Email</th>
-                    <th>Ações</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
                 </tr>
             </thead>
             <tbody id="tBodyContato">
@@ -45,10 +45,16 @@
                                     <td>${e.nome}</td>
                                     <td>${e.fone}</td>
                                     <td>${e.email}</td>
-                                    <td><a href="./editar.html?id=${e.id}">Editar</a></td>
+                                    <td><a href="./editar.html?id=${e.id}"><i class="material-icons">edit</i></a></td>
+                                    <td><button onclick="apagar(${e.id})" class="btn"><i class="material-icons">delete_forever</i></button></td>
                                 </tr>`
             })
             document.getElementById("tBodyContato").innerHTML = concatTable
+        }
+        function apagar(idContato) {
+            let obj = new Contato();
+            obj.excluir(idContato)
+            load();
         }
     </script>
 </body>

@@ -27,3 +27,9 @@ tbody tr:hover{
 td {
     padding: 5px;
 }
+
+.btn {
+    border: none;
+    background: none;
+    color: rgb(93, 17, 116);
+}

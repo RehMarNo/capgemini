@@ -20,6 +20,7 @@
         </div>
         <div class="botoes">
             <button class="salvar" onclick="gravar()">Salvar</button>
+            <button class="salvar" onclick="apagar()">Apagar</button>
             <button class="cancelar">Cancelar</button>
         </div>
 
@@ -40,6 +41,25 @@
             document.getElementById("fone").value = contato.fone
             document.getElementById("email").value = contato.email
         }
+
+        function gravar() {
+            
+            let idContato = document.getElementById("idContato").value
+            let nome = document.getElementById("nome").value
+            let fone = document.getElementById("fone").value
+            let email = document.getElementById("email").value
+            let obj = new Contato(idContato, nome, fone, email);
+            obj.editar()
+
+            setTimeout(window.history.back(), 3000);
+        }
+
+        function apagar() {
+            let obj = new Contato();
+            obj.excluir(document.getElementById("idContato").value)
+            setTimeout(window.history.back(), 3000);
+        }
+
     </script>
 </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+    <script src="./scripts/classes.js"></script>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body onload="pegarParametro()">
+
+    <div class="container">
+        <h1>Editar Contato</h1>
+        <div class="entrada">
+            <input type="text" disabled id="idContato">
+            <input type="text" placeholder="Informe nome" id="nome" required>
+            <input type="text" placeholder="Informe fone" id="fone" required>
+            <input type="text" placeholder="Informe email" id="email" required>
+        </div>
+        <div class="botoes">
+            <button class="salvar" onclick="gravar()">Salvar</button>
+            <button class="cancelar">Cancelar</button>
+        </div>
+
+    </div>
+
+    <script>
+        function pegarParametro() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let idContato = urlParams.get('id');
+            document.getElementById("idContato").value = idContato;
+            let obj = new Contato();
+            obj.consultarPeloId(idContato, preencherDados);
+        }
+
+        function preencherDados(data) {
+            let contato = JSON.parse(data);
+            document.getElementById("nome").value = contato.nome
+            document.getElementById("fone").value = contato.fone
+            document.getElementById("email").value = contato.email
+        }
+    </script>
+</body>
+</html>

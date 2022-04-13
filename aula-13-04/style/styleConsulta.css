@@ -1,0 +1,29 @@
+.container{
+    margin: auto;
+}
+
+table{
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: rgb(170, 86, 196);
+    color: white;
+}
+
+tbody tr{
+    border: 1px solid rgb(108, 161, 136);
+}
+
+tbody tr:nth-child(even) {
+    background-color:silver;
+}
+
+tbody tr:hover{
+    background-color:rgb(108, 161, 136);
+}
+
+td {
+    padding: 5px;
+}

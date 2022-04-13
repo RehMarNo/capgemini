@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta</title>
+    <script src="./scripts/classes.js"></script>
+    <link rel="stylesheet" href="./style/styleConsulta.css">
+</head>
+<body>
+
+    <div class="container">
+        <label for="">Clique para carregar os contato</label>
+        <button onclick="load()">Carregar</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Fone</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tBodyContato">
+
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        function load() {
+            let obj = new Contato()
+            obj.consultarTodos(displayGeral)
+        }
+
+        function displayGeral(dados)  {
+            let contato = JSON.parse(dados)
+            concatTable = ''
+            contato.forEach(e=>{
+                concatTable += `<tr>
+                                    <td>${e.id}</td>
+                                    <td>${e.nome}</td>
+                                    <td>${e.fone}</td>
+                                    <td>${e.email}</td>
+                                    <td><a href="./editar.html?id=${e.id}">Editar</a></td>
+                                </tr>`
+            })
+            document.getElementById("tBodyContato").innerHTML = concatTable
+        }
+    </script>
+</body>
+</html>

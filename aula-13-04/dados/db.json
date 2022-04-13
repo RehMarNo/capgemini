@@ -2,9 +2,21 @@
   "contatos": [
     {
       "id": 1,
-      "nome": "remnata",
+      "nome": "Jose",
+      "fone": "12354",
+      "email": "jose@gmail.com"
+    },
+    {
+      "id": 2,
+      "nome": "Renata",
       "fone": "4657",
-      "email": "suvdiuwv@gmail.com"
+      "email": "renata@gmail.com"
+    },
+    {
+      "id": 3,
+      "nome": "Maria",
+      "fone": "687789",
+      "email": "maria@gmail.com"
     }
   ]
 }

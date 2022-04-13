@@ -20,5 +20,17 @@ class Contato {
                 })
                 .catch(erro => console.log(erro))
         
-    }    
+    }
+
+    consultarTodos(display) {
+        fetch(urlContatos)
+        .then(x => x.text())
+        .then(data => display(data))
+    }
+
+    consultarPeloId(idContato, display) {
+        fetch(`${urlContatos}/${idContato}`)
+        .then(x => x.text())
+        .then(data => display(data))
+    }
 }

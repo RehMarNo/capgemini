@@ -1,0 +1,10 @@
+"use strict";
+var frutas = ['maça', 'pera', 'uva'];
+console.log(frutas);
+frutas.push('manga');
+console.log(frutas);
+var cpf;
+cpf = '123.456.789-01';
+console.log(cpf);
+cpf = 12345678901;
+console.log(cpf);

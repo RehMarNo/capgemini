@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const item_1 = __importDefault(require("./item"));
+const produto_1 = __importDefault(require("./produto"));
+const carrinho_1 = __importDefault(require("./carrinho"));
+let feijao;
+feijao = new produto_1.default('Feijão Preto', 5, 10);
+let arroz = new produto_1.default('Arroz Branco', 5, 10);
+let bolo = new produto_1.default('bolo Laranja', 4, 10);
+let item1 = new item_1.default(feijao, feijao.valorUnitario, 2);
+let item2 = new item_1.default(arroz, arroz.valorUnitario, 3);
+let item3 = new item_1.default(bolo, bolo.valorUnitario, 4);
+let carrinho = [item1, item2];
+carrinho.push(new item_1.default(feijao, feijao.valorUnitario, 3));
+console.log(item1);
+let v1 = new carrinho_1.default([item1, item2], '20/04/2022', 'Carlos', false);
+v1.add(item3);
+v1.finalize();
+v1.display();

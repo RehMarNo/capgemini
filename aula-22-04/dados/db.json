@@ -1,0 +1,67 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "descricao": "Arroz",
+      "preco": 5.89,
+      "estoque": 12
+    },
+    {
+      "id": 2,
+      "descricao": "Feijão",
+      "preco": 7.89,
+      "estoque": 8
+    },
+    {
+      "id": 3,
+      "descricao": "Farinha",
+      "preco": 3.45,
+      "estoque": 12
+    }
+  ],
+  "itens": [],
+  "carrinho": [
+    {
+      "itens": [],
+      "data": "22/04/2022",
+      "cliente": "Renata",
+      "finalizado": true,
+      "id": 1
+    },
+    {
+      "itens": [],
+      "data": "22/04/2022",
+      "cliente": "Robson",
+      "finalizado": true,
+      "id": 2
+    },
+    {
+      "itens": [
+        {
+          "produto": {
+            "id": 1,
+            "descricao": "Arroz",
+            "preco": 5.89,
+            "estoque": 12
+          },
+          "precoItem": 5.89,
+          "qtde": 1
+        },
+        {
+          "produto": {
+            "id": 2,
+            "descricao": "Feijão",
+            "preco": 7.89,
+            "estoque": 8
+          },
+          "precoItem": 7.89,
+          "qtde": 1
+        }
+      ],
+      "data": "22/04/2022",
+      "cliente": "Carlos",
+      "finalizado": true,
+      "id": 3
+    }
+  ]
+}

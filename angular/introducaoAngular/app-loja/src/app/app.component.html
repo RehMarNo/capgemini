@@ -1,0 +1,10 @@
+<nav class="container-fluid bg-dark p-2">
+  <a routerLink="home" class="btn btn-outline-warning me-2 align-middle"><i class="material-icons">home</i></a>
+  <a *ngIf="userConected.perfil=='ADM'" class="btn btn-outline-warning me-2" routerLink="cadastroproduto">Cadastro Produto</a>
+  <a class="btn btn-outline-warning me-2" routerLink="carrinho">Carrinho</a>
+  <a *ngIf="!userConected.email" class="btn btn-outline-warning me-2" routerLink="login">Login</a>
+  <a *ngIf="userConected.email" class="btn btn-outline-warning me-2" (click)="logout()">Logout</a>
+  <span *ngIf="!userConected.email" class="justify-end align-middle" style="color:rgb(224, 167, 8)">{{ userConected.nome }}</span>
+</nav>
+
+<router-outlet></router-outlet>

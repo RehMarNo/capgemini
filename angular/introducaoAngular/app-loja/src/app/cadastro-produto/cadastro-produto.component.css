@@ -1,0 +1,11 @@
+input.ng-valid {
+    border-left: 4px solid #4CAF50;
+}
+
+input.ng-invalid {
+    border-left: 4px solid #f44336;
+}
+
+.msgInvalid{
+    color: #f44336;
+}

@@ -2,6 +2,37 @@
 .botoes {
     width: 100%;
     margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnSalvar {
+    background-color: blue;
+    color: white;
+    width: 30%;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid blue;
+    margin-left: 13px;
+}
+
+.btnSalvar:hover {
+    background-color: white;
+    color: blue;
+}
+
+.btnCancelar {
+    background-color: red;
+    color: white;
+    width: 30%;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid red;
+}
+
+.btnCancelar:hover {
+    background-color: white;
+    color: red;
 }
 
 input {
@@ -9,4 +40,11 @@ input {
     margin-bottom: 5px;
     padding: 5px;
     border-radius: 8px;
+}
+
+.msg {
+    width: 100%;
+    color:blue;
+    display: flex;
+    justify-content: center;
 }

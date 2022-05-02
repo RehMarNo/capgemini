@@ -1,0 +1,64 @@
+<div class="container mt-3 bg-warning rounded-3 p-3">
+    <h3 class="text-center">
+        <i class="material-icons align-middle" style="font-size: 34px;">account_circle</i> Cadastro de Usuário
+    </h3>
+    <form #f="ngForm" (ngSubmit)="save(f.value)">
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <input class="form-control mb-3" ngModel name="nome" #fNome="ngModel" required type="text" placeholder="Nome">
+            <div *ngIf="fNome.invalid" class="msgInvalid mb-2"> Campo obrigatório </div>
+            <div class="row form-group">
+                <!-- <div class="col-3">
+                    <input class="form-control mb-3" ngModel name="dataNasc" type="date" placeholder="Data de Nascimento">
+                </div> -->
+                <div class="col-5">
+                    <input class="form-control mb-3" ngModel name="email" #fEmail="ngModel" required type="text" placeholder="Email">
+                    <div *ngIf="fEmail.invalid" class="msgInvalid mb-2"> Campo obrigatório </div>
+                </div>
+                <!-- <div class="col-4">
+                    <input class="form-control mb-3" ngModel name="fone" type="text" placeholder="Telefone">
+                </div> -->
+            </div>
+        </fieldset>
+        <!-- <fieldset>
+            <legend>Endereço</legend>
+            <div class="row form-group">
+                <div class="col-3">
+                    <input class="form-control mb-3" ngModel name="login" type="text" placeholder="CEP">
+                </div>
+                <div class="col-7">
+                    <input class="form-control mb-3" ngModel name="login" type="text" placeholder="Rua">
+                </div>
+                <div class="col-2">
+                    <input class="form-control mb-3" ngModel name="login" type="number" placeholder="N°">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-5">
+                    <input class="form-control mb-3" ngModel name="login" type="text" placeholder="Complemento">
+                </div>
+                <div class="col-4">
+                    <input class="form-control mb-3" ngModel name="login" type="text" placeholder="Bairro">
+                </div>
+                <div class="col-3">
+                    <input class="form-control mb-3" ngModel name="login" type="text" placeholder="UF">
+                </div>
+            </div>
+        </fieldset> -->
+        <fieldset>
+            <legend>Login</legend>
+            <div class="row form-group">
+                <!-- <div class="col-4">
+                    <input class="form-control mb-3" ngModel name="login" type="text" placeholder="Login">
+                </div> -->
+                <div class="col-4">
+                    <input class="form-control mb-3" ngModel name="password" #fPassword="ngModel" required type="password" placeholder="Password">
+                    <div *ngIf="fPassword.invalid" class="msgInvalid mb-2"> Campo obrigatório </div>
+                </div>
+            </div>
+        </fieldset>
+        <p *ngIf="msg" class="text-center alert alert-success mt-2 fade show">Alterado com sucesso!</p>
+        <button class="btn btn-outline-primary" [disabled]="f.invalid">Salvar</button>
+        <button class="btn btn-outline-danger ms-5">Cancelar</button>
+    </form>
+</div>

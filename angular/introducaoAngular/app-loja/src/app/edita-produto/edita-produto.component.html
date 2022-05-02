@@ -1,0 +1,12 @@
+
+<div class="container mt-3 bg-warning rounded-3 p-3">
+    <h3 class="text-center">Editar de Produto</h3>
+    <form #f="ngForm" >
+        <input class="form-control mb-3" [(ngModel)]="produto.descricao" name="descricao" type="text"  placeholder="Descrição">
+        <input class="form-control mb-3" [(ngModel)]="produto.preco" name="preco" type="text"  placeholder="Preço">
+        <input class="form-control mb-3" [(ngModel)]="produto.estoque" name="estoque" type="number"  placeholder="Estoque">
+        <button class="btn btn-outline-primary" (click)="alterarProduto()">Alterar</button>
+        <button class="btn btn-outline-danger ms-5" type="reset">Cancelar</button>
+    </form>
+    <p *ngIf="msg" class="text-center alert alert-success mt-2 fade show">Alterado com sucesso!</p>
+</div>

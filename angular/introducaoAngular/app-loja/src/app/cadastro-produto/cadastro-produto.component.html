@@ -1,0 +1,42 @@
+<div class="container mt-3 bg-warning rounded-3 p-3">
+    <h3 class="text-center">Cadastro de Produto</h3>
+    <form #f="ngForm" (ngSubmit)="gravar(f.value)">
+        <input class="form-control" ngModel name="descricao" #fDescricao="ngModel" required type="text" placeholder="Descrição">
+        <div *ngIf="fDescricao.invalid" class="msgInvalid mb-2"> Campo obrigatório </div>
+
+        <input class="form-control mt-3" ngModel name="preco" #fPreco="ngModel" required type="text" placeholder="Preço">
+        <div *ngIf="fPreco.invalid" class="msgInvalid mb-2"> Campo obrigatório </div>
+
+        <input class="form-control mt-3" ngModel name="estoque" #fEstoque="ngModel" required type="number" placeholder="Estoque">
+        <div *ngIf="fEstoque.invalid" class="msgInvalid mb-2"> Campo obrigatório </div>
+
+        <button class="btn btn-outline-primary mt-3" [disabled]="f.invalid">Salvar</button>
+        <button class="btn btn-outline-danger ms-5 mt-3" type="reset">Cancelar</button>
+    </form>
+    <p *ngIf="msg" class="text-center alert alert-success mt-2 fade show">Cadastrado com sucesso!</p>
+</div>
+
+<div class="container mt-3 rounded-3 p-3">
+    <table class="table">
+        <thead class="bg-warning">
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Descrição</th>
+                <th class="text-center">Preço</th>
+                <th class="text-center">Estoque</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of produtos">
+                <td class="text-center"> {{ prod.id }}</td>
+                <td> {{ prod.descricao }}</td>
+                <td class="text-center"> {{ prod.preco }}</td>
+                <td class="text-center"> {{ prod.estoque }}</td>
+                <td class="text-center"> <a [routerLink]="['/produtos',prod.id]"><i class="material-icons">mode_edit</i> </a> </td>
+                <td class="text-center"> <i class="material-icons" style="color: red; cursor: pointer;" (click)="delete(prod.id)">delete_forever</i> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

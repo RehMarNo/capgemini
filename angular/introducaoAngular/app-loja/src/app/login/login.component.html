@@ -1,0 +1,15 @@
+<div class="container mt-3">
+    <h3 class="text-center">Login de Usuário</h3>
+    <form #f="ngForm" (ngSubmit)="getUser(f.value)">
+        <input class="form-control" ngModel name="email" type="text" placeholder="Usuário"> <!-- email -->
+        <input class="form-control" ngModel name="password" type="password" placeholder="Password">
+        <button class="btn btn-outline-primary">Login</button>
+    </form>
+    <a class="text-center" routerLink="/cadastrousuario">Não é cadastro?</a>
+    <p>
+        {{ userLogon.perfil }}
+    </p>
+</div>
+
+
+<router-outlet></router-outlet>

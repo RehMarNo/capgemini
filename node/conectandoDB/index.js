@@ -1,24 +1,22 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT;
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 let pg = require('pg');
 let consString = process.env.DATABASE_URL;
- /* 'postgres://kzeqcqfacerjqk:0ab70a2436d1b4e380cc1391f9741d48ba160dba664d0fa87a5b960ba6446548@ec2-107-22-238-112.compute-1.amazonaws.com:5432/d6drlldgcaivkq' */
 
 const pool = new pg.Pool({connectionString: consString, ssl: {rejectUnauthorized: false}})
-
-/* 
-CREATE TABLE usuarios (email varchar(50), senha varchar(200), perfil varchar(15))
-*/
 
 app.get('/', (req, res) => {
     pool.connect((err, client) => {
         if(err) {
-            return res.status(401).send(err.message)
+            return res.status(401).send('Network error: ' + error.message)
         }
         res.status(200).send('Conected')
         
@@ -28,7 +26,7 @@ app.get('/', (req, res) => {
 app.get('/criarTabela', (req, res) => {
     pool.connect((err, client) => {
         if(err) {
-            return res.status(401).send('errooooo')
+            return res.status(401).send('Network error: ' + error.message)
         }
         client.query('CREATE TABLE usuarios (email varchar(50), senha varchar(200), perfil varchar(15))', (error, result) => {
             if (error) {
@@ -40,24 +38,30 @@ app.get('/criarTabela', (req, res) => {
     })
 })
 
-/* ${req.body.email}, ${req.body.senha}, ${req.body.perfil} */
-
 app.post('/usuarios', (req, res) => {
     pool.connect((err, client) => {
+        if(err){
+            return res.status(401).send('Network error: ' + error.message)
+        }
         client.query('SELECT * FROM usuarios WHERE email = $1', [req.body.email], (error, result) => {
             if (error) {
-                return res.status(401).send('Operação não autorizada')
+                return res.status(401).send('Network error: ' + error.message)
             }
 
             if (result.rowCount > 0) {
                 return res.status(403).send('User already exists')
             }
 
-            client.query(`INSERT INTO usuarios (email, senha, perfil) VALUES($1, $2, $3)`, [req.body.email, req.body.senha, req.body.perfil], (error, result) => {
-                if (error) {
-                    return res.status(403).send('Failed on insert user')
+            bcrypt.hash( req.body.senha, 10, (err, hash) => {   //(senha a ser cript, saltos/tentativas, callback)
+                if(err) {
+                    return res.status(500).send('Hash Error: ' + err.message)
                 }
-                res.status(201).send(result.rows[0])
+                client.query(`INSERT INTO usuarios (email, senha, perfil) VALUES($1, $2, $3)`, [req.body.email, hash, req.body.perfil], (error, result) => {
+                    if (error) {
+                        return res.status(403).send('Failed on insert user')
+                    }
+                    res.status(201).send(result.rows[0])
+                })
             })
         }) 
         
@@ -67,7 +71,7 @@ app.post('/usuarios', (req, res) => {
 app.get('/usuarios', (req, res) => {
     pool.connect((err, client) => {
         if(err) {
-            return res.status(401).send('errooooo')
+            return res.status(401).send('Network error: ' + error.message)
         }
         client.query('SELECT email, senha, perfil FROM usuarios', (error, result) => {
             if (error) {
@@ -83,7 +87,7 @@ app.delete('/usuarios/:email', (req, res) => {
     let email = req.params.email
     pool.connect((err, client) => {
         if(err) {
-            return res.status(401).send('errooooo') 
+            return res.status(401).send('Network error: ' + err.message)
         }
         client.query('DELETE FROM usuarios WHERE email =$1',[email], (error, result) => {
             if (error) {
@@ -94,17 +98,33 @@ app.delete('/usuarios/:email', (req, res) => {
     })
 })
 
-app.get('/usuarios/:email', (req, res) => {
-    let email = req.params.email
+app.post('/usuarios/login', (req, res) => {
     pool.connect((err, client) => {
         if(err) {
-            return res.status(401).send('errooooo') 
+            return res.status(401).send('Network error')
         }
-        client.query('SELECT * FROM usuarios WHERE email = $1',[email], (error, result) => {
+        client.query('SELECT * FROM usuarios WHERE email = $1', [req.body.email], (error, result) => {
             if (error) {
-                return res.status(403).send('Failed in consulting users')
+                return res.status(400).send('Failed in consulting users')
             }
-            res.status(200).send(result.rows[0])
+            if(result.rowCount > 0) {
+                bcrypt.compare(req.body.senha, result.rows[0].senha, (e, resultHash) => {
+                    if(e) { 
+                        return res.status(400).send('Failed in authorization') 
+                    }
+
+                    if(resultHash) {
+                        let token = jwt.sign({
+                            email: result.rows[0].email,
+                            perfil: result.rows[0].perfil
+                        }, process.env.JWTKEY, { expiresIn: "1h"})
+                        return res.status(200).send('Successful login');
+                    }
+                })
+            } else {
+                return res.status(400).send('User not found')
+            }
+            
         })
     })
 })
@@ -114,7 +134,7 @@ app.patch('/usuarios/:email', (req, res) => {
     pool.connect((err, client) => {
         client.query('SELECT * FROM usuarios WHERE email = $1', [email], (error, result) => {
             if (error) {
-                return res.status(401).send('Operação não autorizada')
+                return res.status(401).send('Network error: ' + error.message)
             }
 
             if (result.rowCount > 0) {

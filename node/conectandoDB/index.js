@@ -3,6 +3,9 @@ const app = express();
 const port = process.env.PORT;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+let login = require('./middleware/login');
+const cors = require('cors')
+app.use(cors())
 
 
 app.use(express.urlencoded({ extended: false }));
@@ -117,8 +120,10 @@ app.post('/usuarios/login', (req, res) => {
                         let token = jwt.sign({
                             email: result.rows[0].email,
                             perfil: result.rows[0].perfil
-                        }, process.env.JWTKEY, { expiresIn: "1h"})
-                        return res.status(200).send('Successful login');
+                        }, process.env.JWTKEY, { expiresIn: "3h"})
+                        return res.status(200).send({
+                            token: token
+                        });
                     }
                 })
             } else {
@@ -149,6 +154,10 @@ app.patch('/usuarios/:email', (req, res) => {
             }  
         }) 
     })
+})
+
+app.post('/produto', login, (req, res) => {
+    res.status(200).send('rota inserida')
 })
 
 app.listen(port, () => {console.log('listening on port 8081')})

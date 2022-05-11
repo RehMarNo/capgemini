@@ -8,12 +8,17 @@ import { ClienteService } from '../cliente.service';
 })
 export class ConsultaComponent implements OnInit {
 
+  listaCliente: any = []
+
   constructor(private clientService: ClienteService) { 
     this.getAll()
   }
 
   getAll(){
-    this.clientService.getAll().subscribe(data => console.log(data))
+    this.clientService.getAll().subscribe(data => {
+      this.listaCliente = data
+      console.log(this.listaCliente)
+    })
   }
 
   ngOnInit(): void {

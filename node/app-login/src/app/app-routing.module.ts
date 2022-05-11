@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthAdmService } from './auth-adm.service';
 import { AuthguardService } from './authguard.service';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ConsultaComponent } from './consulta/consulta.component';
+import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
+import { RelatorioVendasComponent } from './relatorio-vendas/relatorio-vendas.component';
 
 const routes: Routes = [
   {
@@ -18,6 +21,15 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'relatorio',
+    component: RelatorioVendasComponent,
+    canActivate: [AuthAdmService]
+  },
+  {
+    path: 'error',
+    component: ErrorComponent
   }
 ];
 

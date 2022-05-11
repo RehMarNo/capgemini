@@ -8,12 +8,19 @@
             <th>Email</th>
             <th>Fone</th>
             <th>Genero</th>
+            <th>Observação</th>
             <th>Foto</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
+        <tr *ngFor="let c of listaCliente">
+            <td>{{ c.nome }}</td>
+            <td>{{ c.cpf }}</td>
+            <td>{{ c.email }}</td>
+            <td>{{ c.fone }}</td>
+            <td>{{ c.genero }}</td>
+            <td>{{ c.observacao }}</td>
+            <td> <img src="https://app-ms-clientes.herokuapp.com/clientes/uploads/" alt="imagem"> {{ c.foto }}</td>
         </tr>
     </tbody>
 </table>
